@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Five — Todos</title></head>
+<body>
+<h1>Five — Todos</h1>
+<ul>
+{% for t in todos %}
+<li>{{ t.title }} {% if t.completed %}(done){% endif %}</li>
+{% empty %}
+<li>No todos yet</li>
+{% endfor %}
+
+</ul>
+</body>
+</html>

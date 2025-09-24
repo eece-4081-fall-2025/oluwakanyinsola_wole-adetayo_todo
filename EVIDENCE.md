@@ -1,0 +1,14 @@
+- OS: macOS (your version)
+- Python version: `python --version`  => put output here
+- Virtual environment: `.venv` (created with `python -m venv .venv`)
+- Django version: `python -m django --version` => 5.2.6
+- Commands run:
+  - `pip install -r requirements.txt`
+  - `python manage.py makemigrations five`
+  - `python manage.py migrate`
+  - `python manage.py runserver`
+- Files of interest:
+  - five/models.py  (Todo model)
+  - five/migrations/0001_initial.py
+  - README.md
+  - EVIDENCE.md
