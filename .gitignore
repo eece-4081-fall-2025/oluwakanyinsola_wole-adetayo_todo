@@ -205,9 +205,15 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+<<<<<<< HEAD
 
 
 .venv/
 *.pyc
 __pycache__/
 .DS_Store
+=======
+.venv/
+
+>>>>>>> fe8d926 (Add initial Django todo app files and README updates)
+.venv/
