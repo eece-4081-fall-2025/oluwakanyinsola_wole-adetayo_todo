@@ -13,3 +13,11 @@ Simple Django todo app for course assignment.
 ## Notes
 - Django 5.2.6
 - Put your evidence in EVIDENCE.md
+
+## Development Stack
+
+- **Language:** Python 3.11  
+- **Framework:** Django 5.2.6  
+- **IDE:** VS Code  
+- **Virtual Environment:** `.venv`  
+- **Database:** SQLite (default Django db)  
