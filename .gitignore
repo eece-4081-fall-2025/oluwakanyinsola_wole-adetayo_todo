@@ -205,15 +205,14 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-<<<<<<< HEAD
-
-
-.venv/
-*.pyc
+# Byte-compiled / optimized / DLL files
 __pycache__/
-.DS_Store
-=======
-.venv/
+*.py[codz]
+*$py.class
 
->>>>>>> fe8d926 (Add initial Django todo app files and README updates)
+# ... all the rest of your original entries ...
+
+# Virtual environments
 .venv/
+env/
+venv/
