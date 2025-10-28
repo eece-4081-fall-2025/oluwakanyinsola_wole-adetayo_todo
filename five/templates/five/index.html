@@ -1,15 +1,59 @@
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Five — Todos</title></head>
+<head>
+  <meta charset="utf-8">
+  <title>ToDo MVP</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; }
+    li { margin:.25rem 0; }
+    s { color: #777; }
+    form.inline { display:inline; margin-left:.5rem; }
+    .row { display:flex; gap:.5rem; align-items:center; }
+  </style>
+</head>
 <body>
-<h1>To-Do — App</h1>
-<ul>
-{% for t in todos %}
-<li>{{ t.title }} {% if t.completed %}(done){% endif %}</li>
-{% empty %}
-<li>No todos yet</li>
-{% endfor %}
+  <h1>Tasks</h1>
 
-</ul>
+  <!-- Create -->
+  <form method="post" action="{% url 'five:task_create' %}">
+    {% csrf_token %}
+    <input name="title" placeholder="Add a task…" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <ul>
+    {% for t in todos %}
+      <li>
+        <div class="row">
+          <!-- Toggle complete -->
+          <a href="{% url 'five:task_toggle' t.pk %}">
+            {% if t.completed %}✅{% else %}⬜️{% endif %}
+          </a>
+
+          <!-- Title (strike-through if completed) -->
+          {% if t.completed %}<s>{{ t.title }}</s>{% else %}{{ t.title }}{% endif %}
+
+          <!-- Inline quick edit (title) -->
+          <form class="inline" method="post" action="{% url 'five:task_edit' t.pk %}">
+            {% csrf_token %}
+            <input name="title" value="{{ t.title }}" style="width:12rem">
+            <button type="submit">Save</button>
+          </form>
+
+          <!-- Delete -->
+          <form class="inline" method="post" action="{% url 'five:task_delete' t.pk %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+          </form>
+
+          <!-- Reorder (stub works, optional for MVP) -->
+          <a href="{% url 'five:task_move' t.pk 'up' %}">↑</a>
+          <a href="{% url 'five:task_move' t.pk 'down' %}">↓</a>
+        </div>
+      </li>
+    {% empty %}
+      <li>No tasks yet.</li>
+    {% endfor %}
+  </ul>
 </body>
 </html>
